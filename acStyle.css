@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+:root {
+    --primary: #fff;
+    --bg-color: #ff758f;
+    --bg-envelope-color: #ff8fa3;
+    --envelope-tab: #ffb3c1;
+    --envelope-cover: #ffccd5;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --txt-color: #800f2f;
+    --heart-color: #ff4d6d;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: var(--bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    font-family: 'Pacifico', cursive;
+}
+
+/* Click instruction */
+.click-instruction {
+    font-size: 18px;
+    color: var(--txt-color);
+    margin-bottom: 15px;
+    text-align: center;
+    animation: pulse 1.5s infinite alternate;
+}
+
+/* Pulse animation for the instruction */
+@keyframes pulse {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0.7; transform: scale(1.05); }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.envelope-wrapper {
+    background: var(--bg-envelope-color);
+    box-shadow: 0 0 40px var(--shadow-color);
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.envelope {
+    position: relative;
+    width: 300px;
+    height: 230px;
+}
+
+.envelope::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    border-top: 130px solid var(--envelope-tab);
+    border-right: 150px solid transparent;
+    border-left: 150px solid transparent;
+    transform-origin: top;
+    transition: all 0.5s ease-in-out 0.7s;
+}
+
+.envelope::after {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    width: 0px;
+    height: 0px;
+    border-top: 130px solid transparent;
+    border-right: 150px solid var(--envelope-cover);
+    border-bottom: 100px solid var(--envelope-cover);
+    border-left: 150px solid var(--envelope-cover);
+}
+
+.letter {
+    position: absolute;
+    right: 20%;
+    bottom: 0;
+    width: 54%;
+    height: 80%;
+    background: var(--primary);
+    text-align: center;
+    transition: all 1s ease-in-out;
+    box-shadow: 0 0 5px var(--shadow-color);
+    padding: 20px 10px;
+}
+
+.letter .text {
+    font-family: 'Pacifico', cursive;
+    color: var(--txt-color);
+    text-align: left;
+    font-size: 7px;  /* Reduced size */
+}
+
+/* Heart styling */
+.heart {
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    background: var(--heart-color);
+    z-index: 5;
+    transform: translate(-50%, -20%) rotate(45deg);
+    transition: transform 0.5s ease-in-out 1s, opacity 0.5s ease-in-out;
+    box-shadow: 0 1px 6px var(--shadow-color);
+    cursor: pointer;
+    animation: bounce 1.2s infinite alternate;
+}
+
+/* Heart bounce animation */
+@keyframes bounce {
+    0% { transform: translate(-50%, -20%) rotate(45deg) scale(1); }
+    100% { transform: translate(-50%, -20%) rotate(45deg) scale(1.1); }
+}
+
+/* Make heart transparent when clicked */
+.heart.transparent {
+    opacity: 0.3;
+}
+
+/* Heart parts */
+.heart:before, 
+.heart:after {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: var(--heart-color);
+    border-radius: 50%;
+}
+
+.heart:before {
+    top: -12px;
+}
+
+.heart:after {
+    right: 12px;
+}
+
+/* Envelope open effect */
+.flap .envelope:before {
+    transform: rotateX(180deg);
+    z-index: 0;
+}
+
+.flap .letter {
+    bottom: 100px;
+    transform: scale(1.5);
+    transition-delay: 1s;
+}
+
+.flap .heart {
+    transform: rotate(90deg);
+    transition-delay: 0.4s;
+}
+
+/* Buttons Styling */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Adjust spacing between buttons */
+    margin-top: 30px;
+    flex-wrap: wrap; /* Ensures buttons stay on one line if there's enough space */
+}
+
+.buttons button,
+.secret-button {
+    background-color: var(--heart-color);
+    color: white;
+    font-size: 16px;
+    font-family: 'Pacifico', cursive;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0px 4px 10px var(--shadow-color);
+    display: inline-block;
+}
+
+.buttons button:hover,
+.secret-button:hover {
+    background-color: #c9184a;
+    transform: scale(1.1);
+}

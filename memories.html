@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memories</title>
+    <link rel="stylesheet" href="memories.css">
+</head>
+<body>
+
+    <h1>Memories</h1>
+
+    <!-- Background Music -->
+    
+
+    <!-- Image Container -->
+    <div class="image-container">
+        <img id="memoryImage" src="ft1.png" alt="Memories">
+    </div>
+
+    <!-- Buttons Section -->
+    <div class="buttons">
+        <button onclick="window.location.href='index.html'">Home</button>
+        <button onclick="window.location.href='Time.html'">Time</button>
+        <button onclick="window.location.href='AppreciationCard.html'">Appreciation</button>
+    </div>
+
+    <script>
+const images = [
+    "us3.png", "ft1.png", "mc.png", "us8.png", 
+    "ft3.png", "us2.png", "us5.jpg", "mc2.png", 
+    "us7.png", "ft4.png", "us1.png", "us4.png", 
+    "ft2.png", "us6.jpg", "love1.png"
+];
+
+let currentIndex = 0; 
+
+function cycleImages() {
+    const imageElement = document.getElementById("memoryImage");
+
+    // Start fade-out effect
+    imageElement.style.opacity = "0";
+
+    setTimeout(() => {
+        // Change image after fade-out
+        currentIndex = (currentIndex + 1) % images.length;
+        imageElement.src = images[currentIndex];
+
+        // Start fade-in effect
+        setTimeout(() => {
+            imageElement.style.opacity = "1";
+        }, 100); // Small delay to avoid flickering
+    }, 500); // Matches transition time in CSS
+}
+
+// Change image every 3 seconds
+setInterval(cycleImages, 3000);
+
+    </script>
+</body>
+</html>

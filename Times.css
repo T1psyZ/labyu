@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+:root {
+    --primary: #fff;
+    --bg-color: #ff758f;
+    --txt-color: #800f2f;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --heart-color: #ff4d6d;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: var(--bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    font-family: 'Pacifico', cursive;
+    color: var(--txt-color);
+    text-align: center;
+}
+
+h1 {
+    font-size: 28px;
+    text-shadow: 2px 2px 10px var(--shadow-color);
+}
+
+p {
+    font-size: 22px;
+    font-weight: bold;
+    background: var(--primary);
+    padding: 15px 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px var(--shadow-color);
+}
+img {
+    max-width: 200px; /* Ensures the image scales down but keeps quality */
+    height: auto; /* Maintains the aspect ratio */
+    display: block;
+    margin: 0 auto;
+    border: 8px solid white; /* White outline */
+    border-radius: 15px; /* Slight rounding for a sticker effect */
+    box-shadow: 4px 4px 10px var(--shadow-color); /* Soft shadow */
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px; /* Space between counter and buttons */
+}
+
+.buttons button {
+    background-color: var(--heart-color);
+    color: white;
+    font-size: 16px;
+    font-family: 'Pacifico', cursive;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0px 4px 10px var(--shadow-color);
+}
+
+.buttons button:hover {
+    background-color: #c9184a;
+    transform: scale(1.1);
+}

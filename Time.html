@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Check</title>
+    <link rel="stylesheet" href="Times.css">
+    <script>
+        function updateTime() {
+            const firstValentines = new Date("March 26, 2023 00:00:00");
+            const now = new Date();
+            const diff = now - firstValentines;
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((diff / (1000 * 60)) % 60);
+            const seconds = Math.floor((diff / 1000) % 60);
+
+            document.getElementById("time").innerHTML = 
+                `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds <br> with you <3` ;
+        }
+
+        setInterval(updateTime, 1000);
+    </script>
+</head>
+<body>
+    <h1>Time Check</h1>
+    <img src="us7.png" alt="Our First Valentine's" style="width: 300px; display: block; margin: 0 auto;">
+    <p id="time">Loading...</p>
+
+
+    <!-- Buttons -->
+    <div class="buttons">
+        <button onclick="window.location.href='Memories.html'">Memories</button>
+        <button onclick="window.location.href='index.html'">Home</button>
+        <button onclick="window.location.href='AppreciationCard.html'">Appreciation</button>
+    </div>
+</body>
+</html>

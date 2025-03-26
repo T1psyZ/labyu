@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LetterForU</title>
+    <link rel="stylesheet" href="acStyle.css">
+</head>
+<body>
+    <div class="container">
+        <p class="click-instruction">Click the heart to open the letter!</p>  
+
+        <div class="envelope-wrapper">
+            <div class="envelope">
+                <div class="letter">
+                    <div class="text">
+                        <strong>Dear Kass.</strong>
+                        <p>
+                            Two years by your side, and I won't stop loving you. Even sometimes lagi tayo nag aaway hehe. Just want you to know you’re my best enemy, my biggest challenge, but also the one I can’t live without. Through all the challenges or conflicts, you’re still the one who I want to always love. Happy anniversary, I pray to God this relationship will last 'til we die... <br> ----------(sorry secret kasi dapat haha mwa)----------------------From: JM ;3
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="heart" id="heartButton"></div>
+        </div>
+
+        <!-- Secret Button -->
+        <div class="buttons">
+            <button onclick="window.location.href='Memories.html'">Memories</button>
+            <button onclick="window.location.href='Time.html'">Time</button>
+            <button onclick="window.location.href='index.html'">Home</button>
+            <button class="secret-button" id="secretButton">Secret</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("heartButton").addEventListener("click", function() {
+            document.querySelector(".envelope-wrapper").classList.toggle("flap");
+        });
+
+        document.getElementById("secretButton").addEventListener("click", function() {
+        alert("Hmm... secret muna for now! 😘");
+        window.location.href = "flowers.html"; // Redirect to flowers.html
+    });
+    </script>
+</body>
+</html>
